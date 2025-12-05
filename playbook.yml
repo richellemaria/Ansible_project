@@ -1,4 +1,5 @@
 - name: This is web app 
+  become: yes
   hosts: web
   roles:
     - comman
