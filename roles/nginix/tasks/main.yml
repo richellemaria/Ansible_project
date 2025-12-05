@@ -7,7 +7,7 @@
 - name: start nginix
   ansible.builtin.service:
       name: nginx
-      state: start
+      state: started
       enabled: yes
 
 - name: Copy nginx config
