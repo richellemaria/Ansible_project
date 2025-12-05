@@ -1,4 +1,5 @@
 - name: install nginix
+  become:yes
   ansible.builtin.package:
       name: nginix
       state: present
