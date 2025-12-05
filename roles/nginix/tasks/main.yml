@@ -1,12 +1,13 @@
 - name: install nginix
+  become: yes
   ansible.builtin.package:
-      name: nginix
+      name: nginx
       state: present
   
 - name: start nginix
   ansible.builtin.service:
-      name: nginix
-      state: start
+      name: nginx
+      state: started
       enabled: yes
 
 - name: Copy nginx config
