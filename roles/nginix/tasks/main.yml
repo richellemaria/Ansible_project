@@ -1,0 +1,16 @@
+- name: install nginix
+  ansible.builtin.package:
+      name: nginix
+      state: present
+  
+- name: start nginix
+  ansible.builtin.service:
+      name: nginix
+      state: start
+      enabled: yes
+
+- name: Copy nginx config
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx

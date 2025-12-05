@@ -1,0 +1,4 @@
+- name: restart flaskapp
+  ansible.builtin.systemd_service:
+    name: flaskapp
+    state: restarted

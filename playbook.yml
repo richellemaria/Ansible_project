@@ -1,0 +1,6 @@
+- name: This is web app 
+  hosts: web
+  roles:
+    - comman
+    - nginix
+    - app

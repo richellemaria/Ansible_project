@@ -1,0 +1,26 @@
+# - name: Run tasks/other.yaml instead of 'main'
+#       ansible.builtin.import_role:
+#         name: comman
+#         tasks_from: app
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /opt/flaskapp
+    state: directory
+
+- name: Copy application file 
+  ansible.builtin.copy:
+    src: app.py
+    dest: /opt/flaskapp
+
+- name: Create systemd service
+  ansible.builtin.copy:
+    src: app.service
+    dest: /etc/systemd/system/flaskapp.service
+  notify: restart flaskapp
+
+- name: Start service
+  ansible.builtin.systemd_service:
+    name: flaskapp
+    state: started
+    enabled: yes
+  
