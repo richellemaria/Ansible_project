@@ -1,4 +1,5 @@
 - name: Install Python 3 and pip
+  become: yes
   ansible.builtin.package:
     name: 
       - python3
